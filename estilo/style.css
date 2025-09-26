@@ -40,7 +40,7 @@ header{
     background: var(--cor04) url('/imagens/fundo-cedecast.png') no-repeat top center;
     background-size: cover;
     min-height: 100vh;   
-    width: 100%;
+    max-width: 100vw;
     padding: 40px 60px;
     color: var(--cor04);
 }
@@ -88,19 +88,18 @@ header div#logo-CBMPA  img{
     min-height: 50px;
     background-image: linear-gradient(to right, var(--cor03), var(--cor05));
     color: var(--cor03);
-    transition: top 1s ease;
+    transition: none 2s ease;
     z-index: 1001;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.414);
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
 }
 .slide-menu > ul{
-    text-align: center;
+    text-align: left;
+    font-weight: bold;
     padding: 10px;
     border-bottom: 1px solid rgba(250, 250, 250, 0.2);
 }
 .slide-menu > ul:hover{
-    background: rgba(252, 252, 252, 0.1);
+    background: rgba(252, 252, 252, 0.289);
     cursor: pointer;
 }
 .slide-menu a{
@@ -145,20 +144,6 @@ header div#logo-CBMPA  img{
 #menu-toggle:checked + .menu-btn span:nth-child(3){
     transform:rotate(-45deg) translatey(-13px);
     background: white;
-}
-@media (max-width: 903px) {
-    nav {
-        display: none;
-    }
-    #menu-btn {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        position: absolute;
-        top: 80px;
-        right: 20px;
-        z-index: 1002;
-    }
 }
 header div#menu > nav >ul{
     display: flex;
@@ -218,6 +203,15 @@ header div#conteudo >p#ouvi-agora >a:hover{
     cursor: pointer;
 }
 @media (max-width: 903px) {
+    #menu-btn {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        position: absolute;
+        top: 80px;
+        right: 20px;
+        z-index: 1002;
+    }
     header{
     display: flex;
     flex-direction: column;
