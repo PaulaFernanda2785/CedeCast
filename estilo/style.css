@@ -222,7 +222,6 @@ header div#conteudo >p#ouvi-agora >a:hover{
     display: flex;
     flex-direction: column;
     justify-content: left;  
-    height: 100px;
     background: var(--cor04) url('/imagens/fundo-cedec-pg.png') no-repeat top center;
     background-size: 100% 100%;  
     padding: 10px;
@@ -268,13 +267,31 @@ header div#conteudo > p#ouvi-agora >a{
 /*======DOC*CSS*MAIN=====*/
 main{
     display: flex;
+    justify-content: center;
     margin: auto;
     max-width: 100vw;
     padding: 40px 60px;
     background-color: var(--cor05);
     box-shadow: var(--shadow-hover)
 }
-
+iframe{
+    width: 50vw;
+    height: 100vh;
+    border: 1px solid rgba(0, 0, 0, 0.223);
+    box-shadow: var(--shadow-hover);
+}
+section#episodio{
+    width: 40vw;
+    height: 50vh;
+    background-color: #f37021;
+    margin: 0px 0px 0px 20px;
+}
+section#avisos{
+    width: 40vw;
+    height: 50vh;
+    background-color: #f372215e;
+    margin: 0px 0px 0px 20px;
+}
 /*======DOC*CSS*FOOTER=====*/
 footer{
     display: flex;

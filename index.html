@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="estilo/style.css">
 </head>
 <body>
+    <!--Cabeçalho do Site-->
     <header>
         <div id="topo">
             <div id="logo-CBMPA">
@@ -15,27 +16,26 @@
             </div>
             <div id="menu">
                 <nav>
-                    <ul>
-                        
-                            <li><a href="#">Início</a></li>
-                            <li><a href="#">Episódio</a></li>
-                            <li><a href="#">Avisos</a></li>
-                            <li><a href="#">Contato</a></li>
+                    <ul>  
+                        <li><a href="#conteudo">Início</a></li>
+                        <li><a href="#episodio">Episódio</a></li>
+                        <li><a href="#avisos">Avisos</a></li>
+                        <li><a href="#">Contato</a></li>
                     </ul>
                 </nav>
             </div>
             <section id="menu-btn">
-            <input type="checkbox" id="menu-toggle">
-            <label for="menu-toggle" class="menu-btn">
-                <span></span>
-                <span></span>
-                <span></span>
-            </label>
+                <input type="checkbox" id="menu-toggle">
+                <label for="menu-toggle" class="menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
             <div class="slide-menu">
                 <ul>
-                    <a href="#">Início</a>
-                    <a href="#">Episódio</a>
-                    <a href="#">Avisos</a>
+                    <a href="#conteudo">Início</a>
+                    <a href="#episodio">Episódio</a>
+                    <a href="#avisos">Avisos</a>
                     <a href="#">Contato</a>
                 </ul>
             </div>
@@ -54,6 +54,7 @@
             </p>
         </div>
     </header>
+    <!--Corpo do Site-->
     <main>
         <div>
             <iframe src="imagens/logo.cbmpa.png" name="episodio" frameborder="0">
@@ -62,7 +63,7 @@
         </div>
 
         <div>
-            <section>
+            <section id="episodio">
                 <h2>
                     Episódios 
                 </h2>
@@ -80,7 +81,7 @@
                 </summary>
             </section>
 
-            <section>
+            <section id="avisos">
                 <h2>
                     Avisos
                 </h2>
@@ -92,6 +93,7 @@
             </section>
         </div>
     </main>
+    <!--Rodapé do Site-->
     <footer>
         <div>
             <a href="https://www.bombeiros.pa.gov.br/" target="_blank">
@@ -108,7 +110,7 @@
                 <a href="mailto:dac.cedecpa@gmail.com" target="_blank"><img src="imagens/email.png" alt="email"></a>
                 <a href="https://wa.me/5591988996323" target="_blank"><img src="imagens/Whatsapp.png" alt="Whatsapp"></a>
             </p>
-            <p><a href="#">Política de Privacidade</a> | <a href="">Acessibilidade</a></p>
+            <p><a href="#">Política de Privacidade</a> | <a href="#">Acessibilidade</a></p>
         </div>
     </footer>
 </body>
