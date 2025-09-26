@@ -116,7 +116,7 @@ header div#conteudo >p#ouvi-agora >a:hover{
     display: flex;
     flex-direction: column;
     justify-content: center;  
-    background: var(--cor04) url('/imagens/fundo-cedecast.png') no-repeat top center;
+    background: var(--cor04) url('/imagens/fundo-cedec-pg.png') no-repeat top center;
     background-size: 100% 100%;
     min-height: 100vh;   
     width: 100%;
@@ -137,7 +137,7 @@ header div#menu > nav >ul{ /*vai sumir */
     }
     header div#conteudo > p {
         font-size: 14px;
-        padding-top: 80px;
+        padding-top: 100px;
         max-width: 300px;
     }
     header div#conteudo > p#ouvi-agora > a {
