@@ -12,7 +12,9 @@
     <header>
         <div id="topo">
             <div id="logo-CBMPA">
-                <a href="https://www.bombeiros.pa.gov.br/" target="_blank"><img src="imagens/logo.cbmpa.png" alt="logo-CBMPA"></a>
+                <picture>
+                    <a href="https://www.bombeiros.pa.gov.br/" target="_blank"><img src="imagens/logo.cbmpa.png" alt="logo-CBMPA"></a>
+                </picture>
             </div>
             <div id="menu">
                 <nav>
@@ -56,8 +58,8 @@
     </header>
     <!--Corpo do Site-->
     <main>
-        <div>
-            <iframe src="imagens/logo.cbmpa.png" name="episodio" frameborder="0">
+        <div id="iframe">
+            <iframe srcdoc="<h2> Escolha um Episódio!" style="width: 100%; height: 100%;object-fit:cover;display:block;" referrerpolicy="no-referrent" sandbox="sandbox" name="episodio" frameborder="0">
                 <p>Infelizmente o seu navegador não suporta isso!</p>
             </iframe>
         </div>
@@ -67,18 +69,22 @@
                 <h2>
                     Episódios 
                 </h2>
-                <summary>
-                    <span><a href="#" target="episodio">&#x2610; 01 Ep. Politica Nacional de Proteção e Defesa Civil</a></span> <br>
-                    <span><a href="#" target="episodio">&#x2610; 02 Ep. Politica Nacional de Proteção e Defesa Civil</a></span> <br>
-                    <span><a href="#" target="episodio">&#x2610; 03 Ep. Politica Nacional de Proteção e Defesa Civil</a></span> <br>
-                    <span><a href="#" target="episodio">&#x2610; 04 Ep. Politica Nacional de Proteção e Defesa Civil</a></span> <br>
-                    <span><a href="#" target="episodio">&#x2610; 05 Ep. Politica Nacional de Proteção e Defesa Civil</a></span> <br>
-                    <span><a href="#" target="episodio">&#x2610; 06 Ep. Politica Nacional de Proteção e Defesa Civil</a></span> <br>
-                    <span><a href="#" target="episodio">&#x2610; 07 Ep. Politica Nacional de Proteção e Defesa Civil</a></span> <br>
-                    <span><a href="#" target="episodio">&#x2610; 08 Ep. Politica Nacional de Proteção e Defesa Civil</a></span> <br>
-                    <span><a href="#" target="episodio">&#x2610; 09 Ep. Politica Nacional de Proteção e Defesa Civil</a></span> <br>
-                    <span><a href="#" target="episodio">&#x2610; 10 Ep. Politica Nacional de Proteção e Defesa Civil</a></span> <br>
-                </summary>
+                <div>
+                    <ol id="lista-episodios">
+                        <li><a href="#" target="episodio" onclick="toggleCheck(this)">&#x2610; 01 Ep. Política Nacional de Proteção e Defesa Civil</a></li>
+                        <li><a href="#" target="episodio" onclick="toggleCheck(this)">&#x2610; 01 Ep. Política Nacional de Proteção e Defesa Civil</a></li>
+                        <li><a href="#" target="episodio" onclick="toggleCheck(this)">&#x2610; 01 Ep. Política Nacional de Proteção e Defesa Civil</a></li>
+                        <li><a href="#" target="episodio" onclick="toggleCheck(this)">&#x2610; 01 Ep. Política Nacional de Proteção e Defesa Civil</a></li>
+                        <li><a href="#" target="episodio" onclick="toggleCheck(this)">&#x2610; 01 Ep. Política Nacional de Proteção e Defesa Civil</a></li>
+                        <li><a href="#" target="episodio" onclick="toggleCheck(this)">&#x2610; 01 Ep. Política Nacional de Proteção e Defesa Civil</a></li>
+                        <li><a href="#" target="episodio" onclick="toggleCheck(this)">&#x2610; 01 Ep. Política Nacional de Proteção e Defesa Civil</a></li>
+                        <li><a href="#" target="episodio" onclick="toggleCheck(this)">&#x2610; 01 Ep. Política Nacional de Proteção e Defesa Civil</a></li>
+                        <li><a href="#" target="episodio" onclick="toggleCheck(this)">&#x2610; 01 Ep. Política Nacional de Proteção e Defesa Civil</a></li>
+                        <li><a href="#" target="episodio" onclick="toggleCheck(this)">&#x2610; 01 Ep. Política Nacional de Proteção e Defesa Civil</a></li>
+                        <li><a href="#" target="episodio" onclick="toggleCheck(this)">&#x2610; 01 Ep. Política Nacional de Proteção e Defesa Civil</a></li>
+                        <li><a href="#" target="episodio" onclick="toggleCheck(this)">&#x2610; 01 Ep. Política Nacional de Proteção e Defesa Civil</a></li>
+                    </ol>
+                </div>
             </section>
 
             <section id="avisos">
@@ -105,13 +111,17 @@
 
         <div>
             <p>
-                <a href="https://www.youtube.com/@paulafernandacorrealima8525" target="_blank"><img src="imagens/youtube.png" alt="youtube"></a>
-                <a href="https://www.instagram.com/defesacivilpa/" target="_blank"><img src="imagens/instagram.png" alt="instagram"></a>
-                <a href="mailto:dac.cedecpa@gmail.com" target="_blank"><img src="imagens/email.png" alt="email"></a>
-                <a href="https://wa.me/5591988996323" target="_blank"><img src="imagens/Whatsapp.png" alt="Whatsapp"></a>
+                <picture>
+                    <a href="https://www.youtube.com/@paulafernandacorrealima8525" target="_blank"><img src="imagens/youtube.png" alt="youtube"></a>
+                    <a href="https://www.instagram.com/defesacivilpa/" target="_blank"><img src="imagens/instagram.png" alt="instagram"></a>
+                    <a href="mailto:dac.cedecpa@gmail.com" target="_blank"><img src="imagens/email.png" alt="email"></a>
+                    <a href="https://wa.me/5591988996323" target="_blank"><img src="imagens/Whatsapp.png" alt="Whatsapp"></a>
+                </picture>
             </p>
             <p><a href="#">Política de Privacidade</a> | <a href="#">Acessibilidade</a></p>
         </div>
     </footer>
+
+    <script src="JavaScript/script.js"></script>
 </body>
 </html>

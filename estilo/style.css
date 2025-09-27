@@ -19,7 +19,10 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+h2{
+    text-align: center;
+    padding: 10px;
+}
 ul, ol {
     list-style: none;
 }
@@ -268,21 +271,48 @@ main{
     background-color: var(--cor05);
     box-shadow: var(--shadow-hover)
 }
-iframe{
-    width: 50vw;
-    height: 100vh;
+div#iframe{
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    min-width: 50vw;
+    max-height: 100vh;
+    margin: 0px 0px 0px 20px;
     border: 1px solid rgba(0, 0, 0, 0.223);
     box-shadow: var(--shadow-hover);
 }
+iframe{
+    width: 100%;
+    height: 100%;
+    min-height: 600px;
+    max-width: 100vw;
+    display: block;
+}
 section#episodio{
-    width: 40vw;
-    height: 50vh;
-    background-color: #f37021;
+    min-width: 40vw;
+    max-height: 50vh;
     margin: 0px 0px 0px 20px;
 }
+section#episodio ol{
+    padding: 10px;
+    background-color: var(--cor03);
+    border: 1px solid rgba(0, 0, 0, 0.333);
+    box-shadow: var(--shadow-hover);
+    max-height: 300px;
+    overflow-y: auto
+}
+section#episodio li{
+    padding: 8px;
+    color: var(--cor01);
+}
+section#episodio li:hover{
+    background-color:rgba(255, 120, 1, 0.795);
+    border-radius: 10px;
+    font-weight: bold;
+}
 section#avisos{
-    width: 40vw;
-    height: 50vh;
+    min-width: 40vw;
+    max-height: 50vh;
     background-color: #f372215e;
     margin: 0px 0px 0px 20px;
 }
