@@ -1,0 +1,134 @@
+@charset "UTF-8";
+
+/* fonte Montserrat via Google Fonts (substitua import por link no head se preferir) */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap');
+
+:root{
+  --font-padrao: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  --cor01: #003366; /* azul escuro */
+  --cor02: #f37021; /* laranja */
+  --cor03: #f5f5f5; /* cinza claro */
+  --cor04: #ffffff; /* branco */
+  --cor05: #fbfbfb; /* fundo claro (definida) */
+  --shadow-hover: inset 0 3px 6px rgba(0,0,0,0.12);
+  --radius: 10px;
+  --max-width: 1200px;
+  --gap: 20px;
+  --transition: 0.22s ease;
+}
+
+/* reset básico */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html,body { height: 100%; font-family: var(--font-padrao); color: var(--cor01); -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
+a { color: inherit; text-decoration: none; }
+ul,ol { list-style: none; }
+
+/* skip link */
+.skip-link { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
+.skip-link:focus { left: 10px; top: 10px; width: auto; height: auto; background: var(--cor01); color: var(--cor04); padding: 8px 12px; border-radius: 6px; z-index: 9999; }
+
+/* HEADER */
+.site-header {
+  background: linear-gradient(180deg, rgba(0,0,0,0.28), rgba(0,0,0,0.15)), url('imagens/IMG-FUNDO-CEDEC-CAST.jpg') center/cover no-repeat;
+  color: var(--cor04);
+  padding: 28px 20px;
+}
+.header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  gap: var(--gap);
+}
+.brand img { height: 56px; width: auto; display: block; }
+
+/* nav desktop */
+.main-nav ul { display: flex; gap: 18px; align-items: center; }
+.main-nav a { color: var(--cor04); font-weight: 700; padding: 8px 10px; border-radius: 8px; transition: background var(--transition); }
+.main-nav a:hover, .main-nav a:focus { background: rgba(255,255,255,0.08); outline: none; }
+
+/* mobile menu */
+.mobile-menu { display: none; position: relative; }
+#menu-toggle { display: none; }
+.menu-btn { display: inline-flex; width: 36px; height: 28px; flex-direction: column; justify-content: space-between; cursor: pointer; }
+.menu-btn span { display: block; height: 3px; border-radius: 3px; background: var(--cor04); transition: transform .22s; }
+.mobile-panel {
+  position: absolute; right: 0; top: 46px; background: var(--cor04); color: var(--cor01); min-width: 170px; border-radius: 8px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); transform-origin: top right; opacity: 0; pointer-events: none; transform: translateY(-6px) scale(.98);
+  transition: opacity .18s, transform .18s;
+}
+.mobile-panel ul { padding: 10px; }
+.mobile-panel a { display: block; padding: 8px 10px; border-radius: 6px; color: var(--cor01); }
+.overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.45); opacity: 0; pointer-events: none; transition: opacity .18s; z-index: 50; }
+
+/* quando menu aberto (controlado por checkbox) */
+#menu-toggle:checked ~ .menu-btn span:nth-child(1) { transform: rotate(45deg) translateY(8px); }
+#menu-toggle:checked ~ .menu-btn span:nth-child(2) { opacity: 0; }
+#menu-toggle:checked ~ .menu-btn span:nth-child(3) { transform: rotate(-45deg) translateY(-8px); }
+#menu-toggle:checked ~ .mobile-panel { opacity: 1; pointer-events: auto; transform: translateY(0) scale(1); }
+#menu-toggle:checked ~ .overlay { opacity: 1; pointer-events: auto; }
+
+/* HERO CONTENT */
+.hero { max-width: var(--max-width); margin: 28px auto; padding: 40px 20px; display: flex; align-items: center; justify-content: flex-start; }
+.hero-content { background: rgba(255,255,255,0.06); padding: 32px; border-radius: var(--radius); max-width: 720px; }
+.hero h1 { font-size: clamp(1.6rem, 4vw, 2.8rem); margin-bottom: 10px; line-height: 1.05; }
+.hero p { color: rgba(255,255,255,0.95); font-weight: 500; margin-bottom: 14px; }
+
+/* CTA */
+.btn-primary {
+  display: inline-block; background: var(--cor02); color: var(--cor04); padding: 10px 16px; border-radius: 8px; font-weight: 700; transition: transform var(--transition), box-shadow var(--transition);
+}
+.btn-primary:hover, .btn-primary:focus { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.18); }
+
+/* MAIN layout */
+.site-main {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 24px;
+  max-width: var(--max-width);
+  margin: 0 auto 48px;
+  padding: 20px;
+}
+
+/* player */
+.player iframe {
+  width: 100%;
+  min-height: 360px;
+  height: 100%;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+}
+
+/* episodes list */
+.episodes { background: var(--cor03); padding: 16px; border-radius: var(--radius); height: fit-content; align-self: start; }
+.episode-list li { padding: 8px 6px; border-radius: 8px; margin-bottom: 6px; }
+.episode-list a { display: block; color: var(--cor01); font-weight: 600; padding: 6px 8px; border-radius: 6px; }
+.episode-list a:hover, .episode-list a:focus { background: rgba(0,51,102,0.06); box-shadow: var(--shadow-hover); outline: none; }
+
+/* marked state */
+.episode-list a.checked::before { content: "✅ "; margin-right: 6px; }
+.episode-list a.unchecked::before { content: "☐ "; margin-right: 6px; }
+
+/* notices */
+.notices { padding: 0 10px; }
+.notice-embed iframe { width: 100%; height: 280px; border: 1px solid rgba(0,0,0,0.08); border-radius: 8px; }
+
+/* FOOTER */
+.site-footer {
+  display: flex; justify-content: space-between; gap: 20px; align-items: flex-start;
+  background: var(--cor01); color: var(--cor04); padding: 28px 20px; max-width: var(--max-width); margin: 0 auto 40px;
+  border-radius: 8px;
+}
+.site-footer a { color: var(--cor04); }
+.site-footer img { height: 40px; margin-right: 8px; }
+
+/* responsive */
+@media (max-width: 980px) {
+  .site-main { grid-template-columns: 1fr; padding: 10px; }
+  .hero { padding: 16px; margin: 12px; }
+  .main-nav { display: none; }
+  .mobile-menu { display: block; }
+  .site-footer { flex-direction: column; gap: 16px; }
+  .notice-embed iframe { height: 220px; }
+}
