@@ -317,23 +317,59 @@ section#avisos > div > iframe {
     main {
         flex-direction: column;
         padding: 20px 10px;
+        align-items: stretch;
     }
-    div#iframe,
-    section#episodio,
-    section#avisos {
+    div#iframe, section#episodio {
         margin: 10px 0;
         min-width: 100%;
         max-width: 100vw;
+        min-height: 300px;
+        height: 300px;  
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+}
+    section#episodio ol#lista-episodios{
+        font-size: 14px;
+        min-height: 300px; 
+        height: 300px;  
     }
     section#avisos{
+        margin: auto;
         padding-right: 1px;
+        padding-top: 10px;
+        height: 200px;
+        margin-bottom: 20px;
     }
 }
 /*======DOC*CSS*FOOTER=====*/
 footer{
     display: flex;
     margin: auto;
+    width: 100%;
     max-width: 100vw;
     padding: 40px 60px;
     background-color: var(--cor01);
+    justify-content:space-between;
+}
+footer div{
+    padding: 0px 40px 0px 40px;
+}
+footer picture  img{
+    margin: 10px;
+    width: 70px;
+    height: 50px;
+}
+footer p{
+    padding: 10px;
+    text-align: center;
+}
+footer a:hover{
+    text-decoration: underline var(--cor04);
+    color: var(--cor03);
+}
+@media (max-width: 903px){
+    footer{
+        flex-direction: column;
+    }
 }
