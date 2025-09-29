@@ -42,7 +42,7 @@ header{
     display: flex;
     flex-direction: column;
     justify-content: space-around;  
-    background: var(--cor04) url('/imagens/IMG-FUNDO-CEDEC\ CAST\ \ \(1000\ x\ 400\ px\).jpg') no-repeat top center;
+    background: var(--cor04) url('/imagens/IMG-FUNDO-CEDEC-CAST-G.jpg') no-repeat top center;
     background-size: 100% 100%;
     min-height: 100vh;   
     max-width: 100vw;
@@ -220,7 +220,7 @@ header div#conteudo > p#ouvi-agora > a:hover::after {
     display: flex;
     flex-direction: column;
     justify-content: left;  
-    background: var(--cor04) url('/imagens/IMG-FUNDO-CEDEC\ CAST-2.jpg') no-repeat top center;
+    background: var(--cor04) url('/imagens/IMG-FUNDO-CEDEC-CAST-P.jpg') no-repeat top center;
     background-size: 100% 100%;  
     padding: 10px;
     margin: 0px;
