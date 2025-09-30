@@ -340,18 +340,20 @@ ol#lista-episodios > li:hover{
     main{
         display: flex;
         flex-direction: column;
+        align-items: center;
         height: 100%;
+        width: 90vw;
     }
     div#Escolha-episodio, article#avisos, section#episodio{
-        width: 78vw;
+        width: 87vw;
     }
     section#episodio{
-        margin-left: 1vw;
+        margin-left: 1.2vw;
         margin-bottom: 1vh;
         max-height: 40vh;
     }
     div#iframe-aviso > iframe{
-        width: 74vw;
+        width: 83vw;
     }
 }
 /*======DOC*CSS*FOOTER=====*/
