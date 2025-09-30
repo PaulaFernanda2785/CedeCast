@@ -28,11 +28,14 @@
         max-width: 600px;
         line-height: 30px;
     }
-    @media (max-width: 903px){
+    @media (max-width: 940px){
         h1, h2, p{
-            font-size: 0.8em;
-        }
+        font-size: 0.8em;
+        }   
+        div#iframe > iframe{
+        width: 350px;
     }
+}
 </style>
 <body>
     <main>
@@ -42,8 +45,8 @@
             <h2>
                 Politica Nascional de Proteção e Defesa Civil
             </h2>
-            <div>
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/vsun7cbOHdY?si=g-JcxXXY5KFx5gnJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+            <div id="iframe">
+                <iframe width="530" height="315" src="https://www.youtube.com/embed/vsun7cbOHdY?si=g-JcxXXY5KFx5gnJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
                 </iframe>
             </div>
             <p>

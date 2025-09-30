@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aviso-001</title>
+</head>
+<style>
+    main{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 90vw;
+        height: 90vh;
+    }   
+    iframe{
+        width: 80vw;
+        height: 90vh;
+        border-radius: 10px;
+        margin-left: 70px;
+        margin-top: 10px;
+        
+    }
+    @media (max-width: 745px){
+        div#iframe > iframe{
+            height: 150px;
+            width: 360px;
+            margin-left: 20px;
+        }
+    }
+</style>
+<body>
+    <main>
+        <div id="iframe">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/5WmVSWZvOT8?si=L1OSqXOK7D3hZscg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </main>
+</body>
+</html>
