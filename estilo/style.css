@@ -339,13 +339,14 @@ ol#lista-episodios > li:hover{
 @media (max-width: 940px){
     main{
         display: flex;
-        flex-direction: column;
+        flex-direction: column-reverse;
         align-items: center;
         height: 100%;
         width: 90vw;
     }
     div#Escolha-episodio, article#avisos, section#episodio{
         width: 87vw;
+        margin: 1vh 1vh 0vh 1vh;
     }
     section#episodio{
         margin-left: 1.2vw;
@@ -370,7 +371,7 @@ footer div{
     padding: 0px 40px 0px 40px;
 }
 footer picture  img{
-    margin: 0px 10px 5px 10px;
+    margin: 0px 10px 0px 10px;
     width: 70px;
     height: 50px;
 }
@@ -387,6 +388,6 @@ footer a:hover{
     footer{
         display: flex;
         flex-direction: column;
-        padding: 20px 0px 20px 0px;
+        padding: 10px 0px 10px 0px;
     }
 }
