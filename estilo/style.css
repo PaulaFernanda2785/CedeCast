@@ -323,6 +323,7 @@ ol#lista-episodios{
     min-height: 100%;
 }
 ol#lista-episodios > li{
+    text-align: left;
     padding: 10px;
     color: var(--cor01);
     font-size: 0.9em;
