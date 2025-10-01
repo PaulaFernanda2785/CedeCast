@@ -153,6 +153,7 @@ header div#menu > nav >ul{
     display: flex;
     gap: 20px; 
     padding-right: 25px;
+    margin-top: -10px;
     list-style: none;
 }
 header div#menu > nav > ul > li > a{
@@ -188,7 +189,7 @@ header div#conteudo >p{
 }
 header div#conteudo > p#ouvi-agora > a {
     display: inline-block;
-    margin-top: 200px;
+    margin-top: 130px;
     position: relative;
     background-color: var(--cor02);
     color: var(--cor04);
@@ -208,7 +209,7 @@ header div#conteudo > p#ouvi-agora > a:hover::after {
     font-size: 1em;
     margin-left: 6px;
 }
-@media (max-width: 903px) {
+@media (max-width: 1000px) {
     #menu-btn {
     display: flex;
     flex-direction: column;
@@ -227,7 +228,7 @@ header div#conteudo > p#ouvi-agora > a:hover::after {
     padding: 10px;
     margin: 0px;
     color: var(--cor04);
-}
+    }
     header div#logo-CBMPA  img{
         width: 140px;
         height: 55px;
@@ -241,30 +242,18 @@ header div#conteudo > p#ouvi-agora > a:hover::after {
         max-width: 500px;
         padding: 0px 20px;
     }
-    header div#conteudo > h1 {
-    font-size: clamp(1rem, 6vw, 2em); 
-    padding-top: 0px;
-    margin-top: 120px;
-    color: var(--cor04);
-    }
-    header div#conteudo > p {
-    font-size: 16px;
-    margin-top: 250px;
-    padding-top: 0px;
-    max-width: 270px;
-    }
     header div#conteudo > p#ouvi-agora {
     display: none;
     font-size: 12px;
     padding: 0px;
-    margin-top: 60px;
+    margin-top: 40px;
     width: 116px;
     height: 50px;
-}
-header div#conteudo > p#ouvi-agora >a{
-    margin-top: 200px;
-}
-}
+    }
+    header div#conteudo > p#ouvi-agora >a{
+    margin-top: 100px;
+    }
+    }
 /*======DOC*CSS*MAIN=====*/
 main{
     display: flex;
@@ -280,12 +269,8 @@ div#Escolha-episodio{
     width: 50vw;
     height: 57vh;
     padding: 10px;
-    margin: 1vh 0vh 0vh 1vh;
+    margin: 1vh 0vw 0vh 1vw;
     box-shadow: var(--box-shadow);
-    border-radius: 10px;
-}
-div#Escolha-episodio > iframe{
-    box-shadow: var(--shadow-hover);
     border-radius: 10px;
 }
 article#avisos{
@@ -293,7 +278,7 @@ article#avisos{
     width: 50vw;
     height: 40vh;
     padding: 10px;
-    margin: 1vh 0vh 0vh 1vh;
+    margin: 1vh 0vw 0vh 1vw;
     box-shadow: var(--box-shadow);
     border-radius: 10px;
 }
@@ -307,10 +292,10 @@ div#iframe-aviso > iframe{
 }
 section#episodio{
     background-color: var(--cor04);
-    width: 28vw;
+    width: 27vw;
     height: 98vh;
     padding: 10px;
-    margin: 1vh 1vh 0vh 0vh;
+    margin: 1vh 1vw 0vh 0vw;
     box-shadow: var(--box-shadow);
     border-radius: 10px;
     overflow-y: scroll;
@@ -326,7 +311,7 @@ ol#lista-episodios > li{
     text-align: left;
     padding: 10px;
     color: var(--cor01);
-    font-size: 0.9em;
+    font-size: 0.8em;
     line-height: 1.3em;
     font-weight: bold;
 }
@@ -337,7 +322,7 @@ ol#lista-episodios > li:hover{
     box-shadow: var(--shadow-hover);
     color: var(--cor02);
 }
-@media (max-width: 940px){
+@media (max-width: 1000px){
     main{
         display: flex;
         flex-direction: column-reverse;
@@ -351,11 +336,14 @@ ol#lista-episodios > li:hover{
     }
     section#episodio{
         margin-left: 1.2vw;
-        margin-bottom: 1vh;
+        margin-bottom: 0vh;
         max-height: 40vh;
     }
     div#iframe-aviso > iframe{
         width: 83vw;
+    }
+    article#avisos{
+        margin-bottom: 1vh;
     }
 }
 /*======DOC*CSS*FOOTER=====*/
@@ -373,7 +361,7 @@ footer div{
 }
 footer picture  img{
     margin: 0px 10px 0px 10px;
-    width: 70px;
+    width: 50px;
     height: 50px;
 }
 footer p{
@@ -382,10 +370,9 @@ footer p{
     text-align: center;
 }
 footer a:hover{
-    text-decoration: underline var(--cor04);
     color: var(--cor03);
 }
-@media (max-width: 903px){
+@media (max-width: 1000px){
     footer{
         display: flex;
         flex-direction: column;
