@@ -189,11 +189,11 @@ header div#conteudo >p{
 }
 header div#conteudo > p#ouvi-agora > a {
     display: inline-block;
-    margin-top: 130px;
+    margin-top: 30px;
     position: relative;
     background-color: var(--cor02);
     color: var(--cor04);
-    padding: 12px 20px;
+    padding: 10px 20px;
     border-radius: 10px;
     font-weight: bold;
     text-decoration: none;
