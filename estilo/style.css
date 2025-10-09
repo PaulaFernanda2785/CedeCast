@@ -87,7 +87,7 @@ header > div#topo{
 }
 .slide-menu{
     position: absolute;
-    top: -245px;
+    top: -273px;
     width: 115px;
     min-height: 50px;
     background-image: linear-gradient(to right, var(--cor03), var(--cor05));
@@ -154,7 +154,7 @@ header > div#topo{
 header div#menu > nav >ul{
     display: flex;
     gap: 2px; 
-    padding-right: 20px;
+    padding-right: 0px;
     margin-top: -90px;
     list-style: none;
 }
