@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+  
+  <script>
+    const versaoAUTOSIMD = window.location.pathname.split("/").pop().replace(/\.[^/.]+$/, "");
+
+    // Carrega o CSS correspondente
+    const linkCSS = document.createElement("link");
+    linkCSS.rel = "stylesheet";
+    linkCSS.href = versaoAUTOSIMD + ".css";
+    document.head.appendChild(linkCSS);
+
+    // Carrega o JS correspondente
+    const scriptJS = document.createElement("script");
+    scriptJS.src = versaoAUTOSIMD + ".js";
+    scriptJS.defer = true;
+    document.head.appendChild(scriptJS);
+  </script>
+
+  <style>
+    textarea { font-family: monospace; white-space: pre; }
+    button { margin-left: 8px; }
+  </style>
+  
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/@turf/turf/turf.min.js"></script>
+</head>
+
+<body>
+  <script>
+    // Exibe dinamicamente o nome do arquivo HTML na página e no título
+    const nomeAUTOSIMD = "AUTOSIMD " + versaoAUTOSIMD;
+    document.addEventListener("DOMContentLoaded", () => {
+      document.getElementById("nomeAUTOSIMD").textContent = nomeAUTOSIMD;
+      document.title = nomeAUTOSIMD;
+    });
+  </script>
+
+  <h2 id="nomeAUTOSIMD"></h2>
+  <h3>Automação para filtragem de dados de alertas do INMET</h3>
+  <label>URL do alerta (ex: https://alertas2.inmet.gov.br/51713)</label><br>
+  <input id="alertUrl" type="text" value="" style="width:70%; padding:6px;">
+  <button id="btnBuscar">Buscar</button>
+  <button onclick="exportarExcel()">Exportar Excel</button>
+  
+  <div class="layout-conteudo">
+    <div class="tabela-container">
+      <table id="tabela" style="display:none; margin-top:16px;">
+        <thead>
+          <tr>
+            <th>Campo</th>
+            <th>Valor</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <div id="tabelaResultados"></div>
+    </div>
+
+    <div class="mapa-container">
+      <h3 style="margin-top:20px;">Mapa do Polígono</h3>
+      <div id="map" style="height: 500px; width: 100%;"></div>
+      <div style="margin-top: 10px; text-align: center;">
+        <button id="btnBaixarKML">⬇️ Baixar Polígono (KML)</button>
+      </div>    
+    </div>
+  </div>
+  
+  <h3 style="margin-top:20px;">Relatório Completo</h3>
+  <textarea id="relatorio" rows="14" style="width:100%;"></textarea><br>
+  <button id="btnCopiarRelatorio">📋 Copiar Relatório</button>
+</body>
+</html>
