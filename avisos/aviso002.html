@@ -4,21 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aviso-001</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        .iframe-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 60vh;
+            height: 100vh;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            background: #fff;
+        }
+        .iframe-container iframe {
+            width: 100%;
+            max-width: 830px;
+            height: 60vh;
+            min-height: 250px;
+            border-radius: 10px;
+            border: none;
+        }
+        @media (max-width: 600px) {
+            .iframe-container iframe {
+                height: 40vh;
+                max-width: 100vw;
+            }
+        }
+    </style>
 </head>
-<style>
-    body{
-        margin: 0px;
-        padding: 0px;
-    } 
-</style>
-<body>  
-    <div style="border-radius: 10px; overflow: hidden; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
-    <iframe 
-    src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQfs0Fgehrtyvatc9mUgHuLRR_LgkPU3UzkMk7zWMFlt42-2zc02BPcos7E-ixzqau97pUvXvMi0Mhq/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"
-    width="100%" 
-    height="600px"
-    frameborder="0">
-    </iframe>
-</div>
+<body>
+    <div class="iframe-container">
+        <iframe 
+            src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQfs0Fgehrtyvatc9mUgHuLRR_LgkPU3UzkMk7zWMFlt42-2zc02BPcos7E-ixzqau97pUvXvMi0Mhq/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false">
+        </iframe>
+    </div>
 </body>
 </html>
