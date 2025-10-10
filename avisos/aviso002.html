@@ -6,34 +6,19 @@
     <title>Aviso-001</title>
 </head>
 <style>
-    main{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 90vw;
-        height: 90vh;
-    }   
-    iframe{
-        width: 80vw;
-        height: 90vh;
-        border-radius: 10px;
-        margin-left: 70px;
-        margin-top: 10px;
-        
-    }
-    @media (max-width: 745px){
-        div#iframe > iframe{
-            height: 150px;
-            width: 360px;
-            margin-left: 20px;
-        }
-    }
+    body{
+        margin: 0px;
+        padding: 0px;
+    } 
 </style>
-<body>
-    <main>
-        <div id="iframe">
-            <iframe src="https://docs.google.com/document/d/e/2PACX-1vScToj7-1uwULRJn7oBxTwxZyFyygqxN9kSQWfQKc2GlsRCt6WyAz0fMiBiOQQAGE7j8lkifJshdlFl/pub?embedded=true"></iframe>
-        </div>
-    </main>
+<body>  
+    <div style="border-radius: 10px; overflow: hidden; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+    <iframe 
+    src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQfs0Fgehrtyvatc9mUgHuLRR_LgkPU3UzkMk7zWMFlt42-2zc02BPcos7E-ixzqau97pUvXvMi0Mhq/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"
+    width="100%" 
+    height="600px"
+    frameborder="0">
+    </iframe>
+</div>
 </body>
 </html>
