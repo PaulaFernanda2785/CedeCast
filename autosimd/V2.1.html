@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+  <link rel="shortcut icon" href="../logo.cedec-pg.ico" type="image/x-icon">
   
   <script>
     const versaoAUTOSIMD = window.location.pathname.split("/").pop().replace(/\.[^/.]+$/, "");
@@ -39,9 +40,16 @@
       document.title = nomeAUTOSIMD;
     });
   </script>
-
-  <h2 id="nomeAUTOSIMD"></h2>
-  <h3>Automação para filtragem de dados de alertas do INMET</h3>
+  <header>
+    <div>
+      <h2 id="nomeAUTOSIMD"></h2>
+      <h3>Automação para filtragem de dados de alertas do INMET</h3>
+    </div>
+    <div>
+      <img src="/imagens/logo-autosimd.png" alt="autosimd">
+    </div>
+  </header>
+  <h3></h3>
   <label>URL do alerta (ex: https://alertas2.inmet.gov.br/51713)</label><br>
   <input id="alertUrl" type="text" value="" style="width:70%; padding:6px;">
   <button id="btnBuscar">Buscar</button>
@@ -73,5 +81,26 @@
   <h3 style="margin-top:20px;">Relatório Completo</h3>
   <textarea id="relatorio" rows="14" style="width:100%;"></textarea><br>
   <button id="btnCopiarRelatorio">📋 Copiar Relatório</button>
+  <footer id="contatos">
+        <div>
+            <p>
+              <a href="https://www.bombeiros.pa.gov.br/" target="_blank">
+                  Defesa Civil do Estado do Pará – CEDEC/PA</a></p>
+            <p>Endereço e contatos oficiais</p>
+            <p><a href="https://www.google.com/maps/place/Comando+Geral+do+Corpo+de+Bombeiros+Militar+do+Par%C3%A1/@-1.4068442,-48.4672772,17z/data=!3m1!4b1!4m6!3m5!1s0x92a48bcf3e9c8e4b:0x17375e69f0882b02!8m2!3d-1.4068496!4d-48.4647023!16s%2Fg%2F1tdzbh7q?entry=ttu&g_ep=EgoyMDI1MDkyMy4wIKXMDSoASAFQAw%3D%3D" target="_blank">Av. Júlio César, nº 3.000, bairro de Val-de-Cans, Belém - PA.</a></p>
+        </div>
+
+        <div>
+            <p>
+                <picture>
+                    <a href="https://www.youtube.com/@paulafernandacorrealima8525" target="_blank"><img src="/imagens/youtube.png" alt="youtube"></a>
+                    <a href="https://www.instagram.com/defesacivilpa/" target="_blank"><img src="/imagens/instagram.png" alt="instagram"></a>
+                    <a href="mailto:dac.cedecpa@gmail.com" target="_blank"><img src="/imagens/email.png" alt="email"></a>
+                    <a href="https://wa.me/5591988996323" target="_blank"><img src="/imagens/Whatsapp.png" alt="Whatsapp"></a>
+                </picture>
+            </p>
+            <p><a href="#">Política de Privacidade</a> | <a href="#">Acessibilidade</a></p>
+        </div>
+    </footer>
 </body>
 </html>
