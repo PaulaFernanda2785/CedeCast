@@ -47,6 +47,16 @@ div > img{
 
 /* 📱 Responsividade: em telas menores que 900px, empilha tabela e mapa */
 @media (max-width: 900px) {
+  header{
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  header >div{
+    padding: 0px;
+    line-height: 25px;
+  }
+
   .layout-conteudo {
     flex-direction: column;
   }
