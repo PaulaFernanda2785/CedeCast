@@ -276,7 +276,7 @@ div#Escolha-episodio{
     box-shadow: var(--box-shadow);
     border-radius: 10px;
 }
-article#avisos{
+article#alertas{
     position: relative;
     background-color: var(--cor04);
     width: 50vw;
@@ -286,7 +286,7 @@ article#avisos{
     box-shadow: var(--box-shadow);
     border-radius: 10px;
 }
-#tela-aviso{
+#tela-alertas{
     display: flex;
     justify-content: center;
     position: absolute;
@@ -330,7 +330,7 @@ ol#lista-episodios > li:hover{
     box-shadow: var(--shadow-hover);
     color: var(--cor02);
 }
-section#sobre{
+section#avisos{
     background-color: var(--cor04);
     width: 27vw;
     height: 40vh;
@@ -339,7 +339,7 @@ section#sobre{
     border-radius: 10px;
     padding: 10px;
 }
-#tela-sobre{
+#tela-avisos{
     display: flex;
     justify-content: center;
     position: relative;
@@ -358,7 +358,7 @@ section#sobre{
         height: 100%;
         width: 90vw;
     }
-    div#Escolha-episodio, article#avisos, section#episodio, section#sobre{
+    div#Escolha-episodio, article#alertas, section#episodio, section#avisos{
         width: 87vw;
         margin: 1vh 1vh 0vh 1vh;
     }
@@ -367,47 +367,51 @@ section#sobre{
         margin-bottom: 0vh;
         max-height: 40vh;
     }
-    article#avisos{
+    article#alerta{
         margin-bottom: 1vh;
     }
-    div#iframe-aviso > iframe{
+    div#iframe-alertas > iframe{
         width: 84vw;
     }
-    #tela-aviso{
+    #tela-avisos{
         height: 65%;
         width: 100%;
     }
 }
 /*======DOC*CSS*FOOTER=====*/
-footer{
-    display: flex;
-    margin: auto;
+footer#contatos{
+    display:flex;
     width: 100%;
     max-width: 100vw;
-    padding: 40px 60px;
+    padding: 10px 60px;
     background-color: #0F2EA4;
-    justify-content:space-between;
+    justify-content: space-between;
+    align-items: center;
 }
-footer div{
-    padding: 0px 40px 0px 40px;
+footer#contatos > div{
+    padding: 0px 200px 0px 0px;  
 }
-footer picture  img{
+footer#contatos picture  img{
     margin: 0px 10px 0px 10px;
     width: 50px;
     height: 50px;
 }
-footer p{
+footer#contatos p{
     font-size: 1.2em;
     padding: 10px;
     text-align: center;
 }
-footer a:hover{
+footer#contatos a:hover{
     color: var(--cor03);
 }
 @media (max-width: 1000px){
-    footer{
+    footer#contatos{
         display: flex;
         flex-direction: column;
         padding: 10px 0px 10px 0px;
+        
     }
+    footer#contatos > div{
+    padding: 0px 0px 0px 0px;  
+}
 }

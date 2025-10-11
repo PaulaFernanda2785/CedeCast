@@ -72,7 +72,7 @@ div > img{
 
 /*======DOC*CSS*FOOTER=====*/
 footer{
-  margin-top: 20px;
+    margin-top: 20px;
     display: flex;
     width: 94%;
     max-width: 100vw;
