@@ -326,7 +326,7 @@ ol#lista-episodios > li{
 ol#lista-episodios > li:hover{
     background-color: var(--cor03);
     font-weight: bold;
-    bow-y: scroll;order-radius: 10px;
+    border-radius: 10px;
     box-shadow: var(--shadow-hover);
     color: var(--cor02);
 }
