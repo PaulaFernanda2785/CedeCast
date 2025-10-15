@@ -16,6 +16,14 @@ const siglaSeveridadeMap = {
   "Perigo Potencial": "PP"
 };
 
+const listaSuspensaMeso = [
+  "Marajó",
+  "Sudoeste Paraense",
+  "Sudeste Paraense",
+  "Nordeste Paraense",
+  "Baixo Amazonas",
+  "Metropolitana de Belém"
+];
 
 const mesorregioes = {
   "Marajó": ["Bagre","Gurupá","Melgaço","Portel","Afuá","Anajás","Breves",
@@ -95,6 +103,97 @@ function classificarPorMesorregiao(municipios) {
   });
   return resultado;
 }
+
+async function carregarAlertasParaLista() {
+  const urlFeed = "https://apiprevmet3.inmet.gov.br/avisos/rss";
+  
+  try {
+    const textoFeed = await fetchWithCorsFallback(urlFeed);
+    const parser = new DOMParser();
+    const xml = parser.parseFromString(textoFeed, "application/xml");
+    const itens = xml.querySelectorAll("item");
+
+    const selectEl = document.getElementById("listaAlertasPara");
+    if (!selectEl) return;
+
+    // Limpa a lista antes de preencher
+    selectEl.innerHTML = "";
+
+    itens.forEach(item => {
+      const titleNode = item.querySelector("title");
+      const guidNode = item.querySelector("guid");
+      const descNode = item.querySelector("description");
+      const pubDateNode = item.querySelector("pubDate");
+
+      if (!titleNode || !guidNode || !descNode || !pubDateNode) return;
+
+      const titleText = titleNode.textContent.trim(); 
+      const guid = guidNode.textContent.trim();
+      const descText = descNode.textContent.trim();
+      const pubDateRaw = pubDateNode.textContent.trim();
+
+      let pertence = listaSuspensaMeso.some(meso => 
+        descText.toLowerCase().includes(meso.toLowerCase())
+      );
+
+      if (!pertence) return;
+
+      let evento = "";
+      let severidade = "";
+      try {
+        const partes = titleText.split(".");
+        if (partes[0].includes("Aviso de")) {
+          evento = partes[0].replace("Aviso de", "").trim();
+        }
+        const matchSev = titleText.match(/Grau:\s*([^<]+)/i);
+        severidade = (matchSev && matchSev[1]) ? matchSev[1].trim() : "";
+      } catch(e){}
+
+      // Extrair data de início a partir da <description>
+      let dataFormatada = "";
+      try {
+        const inicioMatch = descText.match(/Início<\/th><td>([^<]+)/i);
+        if (inicioMatch && inicioMatch[1]) {
+          const inicioBruto = inicioMatch[1].trim(); 
+          // Ex: "2025-10-15 21:00:00.0" ou "2025-10-15 21:00:00"
+          const d = new Date(inicioBruto.replace(".0",""));
+          if (!isNaN(d)) {
+            const dia = String(d.getDate()).padStart(2,"0");
+            const mes = String(d.getMonth()+1).padStart(2,"0");
+            const ano = d.getFullYear();
+            const hora = String(d.getHours()).padStart(2,"0");
+            const min = String(d.getMinutes()).padStart(2,"0");
+            dataFormatada = `${dia}/${mes}/${ano} ${hora}:${min}`;
+          }
+        }
+      } catch(e){}
+
+      const textoOpcao = `${dataFormatada} - ${evento} (${severidade})`;
+
+      const op = document.createElement("option");
+      op.value = guid; 
+      op.textContent = textoOpcao;
+      selectEl.appendChild(op);
+    });
+  } catch (err) {
+    console.error("Erro ao carregar alertas do feed:", err);
+  }
+}
+
+// Evento para quando o usuário trocar de alerta
+document.getElementById("listaAlertasPara").addEventListener("change", function(){
+  const linkSelecionado = this.value;
+  if (linkSelecionado) {
+    const campoUrl = document.getElementById("alertUrl");
+    if (campoUrl) {
+      campoUrl.value = linkSelecionado;
+    }
+    buscarAlerta();
+  }
+});
+
+document.addEventListener("DOMContentLoaded", carregarAlertasParaLista);
+
 
 // --- BUSCA DO ALERTA ---
 // --- helper: tenta buscar direto, se falhar usa AllOrigins como fallback ---
@@ -288,14 +387,13 @@ function fallbackCopy(texto) {
   }
 }
 
-// --- BAIXAR KML ---
 function baixarKML() {
   if (!camadaPoligono) {
     alert("Nenhum polígono carregado no mapa!");
     return;
   }
 
-  // --- Nome do evento e severidade ---
+  // --- Nome do evento e severidade (mantido como estava) ---
   let nomeEvento = dados["Evento"] || "alerta";
   nomeEvento = normalizeText(nomeEvento).replace(/\s+/g, "");
   const severidade = dados["Severidade"] || "";
@@ -305,11 +403,24 @@ function baixarKML() {
   const dataCompacta = dataMatch ? `${dataMatch[3]}${dataMatch[2]}${dataMatch[1]}` : "00000000";
   const nomeArquivo = `${dataCompacta}_${nomeEvento}_${sigla}.kml`;
 
-   const latlngs = camadaPoligono.getLatLngs()[0];
-   const kmlHeader = `<?xml version="1.0" encoding="UTF-8"?>
+  // --- Coordenadas do polígono ---
+  const latlngs = camadaPoligono.getLatLngs()[0];
+  let coords = latlngs.map(pt => `${pt.lng},${pt.lat},0`);
+
+  // Garante fechamento do polígono: último ponto = primeiro
+  if (coords.length > 0 && coords[0] !== coords[coords.length - 1]) {
+    coords.push(coords[0]);
+  }
+
+  // --- Montagem do KML no padrão do QGIS + seu estilo original ---
+  const kmlContent = `<?xml version="1.0" encoding="utf-8" ?>
 <kml xmlns="http://www.opengis.net/kml/2.2">
-  <Document>
-    <name>${nomeEvento}</name>
+<Document id="root_doc">
+  <Schema name="polgono" id="polgono">
+    <SimpleField name="id" type="int"></SimpleField>
+  </Schema>
+  <Folder>
+    <name>polgono</name>
     <Placemark>
       <name>${nomeEvento}</name>
       <Style>
@@ -321,24 +432,26 @@ function baixarKML() {
           <color>7dff0000</color>
         </PolyStyle>
       </Style>
+      <ExtendedData>
+        <SchemaData schemaUrl="#polgono">
+          <SimpleData name="id">1</SimpleData>
+        </SchemaData>
+      </ExtendedData>
       <Polygon>
         <outerBoundaryIs>
           <LinearRing>
-            <coordinates>`;
-
-  const coordsText = "\n" + latlngs.map(pt => `${pt.lng},${pt.lat},0`).join("\n") + "\n";
-
-  const kmlFooter = `          </coordinates>
+            <coordinates>
+${coords.join("\n")}
+            </coordinates>
           </LinearRing>
         </outerBoundaryIs>
       </Polygon>
     </Placemark>
-  </Document>
+  </Folder>
+</Document>
 </kml>`;
 
-  const kmlContent = kmlHeader + coordsText + kmlFooter;
-
-  // --- Download automático ---
+  // --- Download automático (inalterado) ---
   const blob = new Blob([kmlContent], { type: "application/vnd.google-earth.kml+xml" });
   const url = URL.createObjectURL(blob);
   const link = document.createElement("a");
@@ -349,6 +462,7 @@ function baixarKML() {
   document.body.removeChild(link);
   URL.revokeObjectURL(url);
 }
+
 
 // --- Listener para o botão Baixar KML ---
 document.getElementById("btnBaixarKML").addEventListener("click", baixarKML);

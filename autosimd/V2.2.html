@@ -43,17 +43,20 @@
   <header>
     <div>
       <h2 id="nomeAUTOSIMD"></h2>
-      <h3>Automação para filtragem de dados de alertas do INMET</h3>
+      <h3>Automação para filtragem de dados do Pará de alertas do INMET</h3>
     </div>
     <div>
       <img src="/imagens/logo-autosimd.png" alt="autosimd">
     </div>
   </header>
   <h3></h3>
-  <label>URL do alerta (ex: https://alertas2.inmet.gov.br/51713)</label><br>
-  <input id="alertUrl" type="text" value="" style="width:70%; padding:6px;">
+  <select id="listaAlertasPara" style="width:70%; padding:6px;">
+  <option value="">🔽 Selecione um alerta...</option>
+  </select>
+  <button id="btnAtualizarLista">🔁 Atualizar Lista</button>
+  <input id="alertUrl" type="text" placeholder="Ou cole o link do alerta..." style="width:60%; padding:5px;">
   <button id="btnBuscar">Buscar</button>
-  <button onclick="exportarExcel()">Exportar Excel</button>
+  
   
   <div class="layout-conteudo">
     <div class="tabela-container">
@@ -67,6 +70,7 @@
         <tbody></tbody>
       </table>
       <div id="tabelaResultados"></div>
+      <button onclick="exportarExcel()">Exportar tabela para Excel</button>
     </div>
 
     <div class="mapa-container">
