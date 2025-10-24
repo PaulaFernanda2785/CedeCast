@@ -45,8 +45,8 @@ div > img{
   border-radius: 8px;
 }
 
-/* 📱 Responsividade: em telas menores que 900px, empilha tabela e mapa */
-@media (max-width: 900px) {
+/* 📱 Responsividade: em telas menores que 1001px, empilha tabela e mapa */
+@media (max-width: 1001px) {
   header{
     flex-direction: column-reverse;
     text-align: center;
@@ -104,12 +104,12 @@ footer a{
 footer a:hover{
     color: white;
 }
-@media (max-width: 1000px){
+@media (max-width: 1070px){
     footer{
         width: 100%;
         display: flex;
         flex-direction: column;
-        padding: 10px 0px 10px 0px;
+        padding: 0px 0px 0px 0px;
     }
 }
 
