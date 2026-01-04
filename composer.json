@@ -1,0 +1,14 @@
+{
+  "name": "cedecast/autosimd",
+  "description": "Automação para alertas INMET",
+  "require": {
+    "google/apiclient": "^2.0",
+    "guzzlehttp/guzzle": "^7.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "CedeCast\\": "src/"
+    }
+  }
+}</content>
+<parameter name="filePath">c:\Users\paula\OneDrive\Documentos\SITES-DESENVOLVEDOR-CL\CedeCast\composer.json
